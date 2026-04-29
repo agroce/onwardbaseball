@@ -130,12 +130,15 @@
 
 
 \begin{abstract}
-Software engineering metrics and baseball statistics!
+Software engineering metrics and baseball metrics have a lot in
+common; we oughta do something about that.
   \end{abstract}
 
 
 
 \maketitle
+
+\section{Introduction}
 
 Harlan D. Mills (1919-1996) is the namesake of the Harlan D. Mills
 Award given by the IEEE Computer Society to recognize “researchers and
@@ -145,9 +148,10 @@ sciences, focusing on contributions to the practice of software
 engineering through the application of sound theory.”  First given in
 1999, recipients include such luminaries as David Parnas (the first
 winner), Elaine Weyuker, Bertrand Meyer, the Cousots, Gerard Holzmann,
-Pamela Zave, Gail Murphy, Mark Harman, Matt Dwyer, and David Harel.
+Pamela Zave, Gail Murphy, Mark Harman, Matt Dwyer, David Harel, and,
+most recently, Andreas Zeller.
 Mills’ idea of the Chief Programmer Team influenced Brooks’ proposals
-for how to avoid software disaster in The Mythical Man-Month; his
+for how to avoid software disaster in \emph{The Mythical Man-Month}; his
 Cleanroom conception informs every approach that is focused on
 defect-prevention (from static analysis to aggressive unit testing to
 mutation testing) rather than removing defects found in the field;
@@ -170,7 +174,7 @@ program because he thought it was garbage, and that he worked at the
 Institute for Advanced Study alongside Einstein, Godel, and von
 Neumann, because Harlan Mills and his brother Eldon are the most
 prominent characters in Chapter 4 of Alan Schwarz's book, \emph{The
-  Numbers Game: Baseball's Lifelong Fascination with Statistics}.
+  Numbers Game: Baseball's Lifelong Fascination with Statistics}~\cite{schwarz2004number}.
 Because, you see, besides a passion for applied mathematics and
 operational research and software engineering, Harlan Mills had a
 passion for baseball.  Harlan and Eldon Mills, in 1968, founded a
@@ -191,56 +195,57 @@ The connection between baseball statistics and software engineering,
 however, goes beyond the curiosity that Mills was a pioneer in both
 software engineering and baseball stats-savvy.  The obvious connection
 is that the stats revolution in baseball was in substantial part tied
-to the computer revolution; nothing like https://www.retrosheet.org/
+to the computer revolution; nothing like \url{https://www.retrosheet.org/}
 could plausibly exist in a non-computerized world, and certainly
 looking for trends or even just finding individual facts in such a
 database (play-by-play accounts of over 100,000 pro baseball games)
 would be impossible even if a warehouse of filing cabinets had the
-relevant data. The Numbers Game shows how computers were essential to
+relevant data. Schwarz's book shows how computers were essential to
 the growth of the modern baseball stats world, and takes us back to
 when baseball work was done by “stealing” off-time on hulking company
-and government mainframes. The deeper connection, however, that this
-book may help the software engineering reader ponder, is that baseball
+and government mainframes. The deeper connection, however, essay addresses, is that baseball
 was, for a very long time, tied to extremely traditional, and beloved
 statistics, but even stodgy, change-averse professional baseball front
 and back offices eventually realized the limitations of these
 statistics and moved on to more sophisticated, nuanced, statistics
-that truly reflected how to win the game.
+that truly reflected how to win the game.  That story:  famous,
+widely-used numbers, lacking in proven operational relevance, should
+sound familliar to students of software engineering.
+
+\section{Build a Better Mousetrap/Metric}
 
 To develop the theme of the similarities (data is easy to gather, hard
 to understand; a lot of people who like futzing with spreadsheets and
 coding up formulas are involved; there’s a lot of money and a lot of
-(to stay polite, this is a family column) “BS” involved) and
+(to stay polite, this is a family paper!) “BS” involved) and
 differences (baseball is an extraordinarily structured thing, and the
 binary outcome of almost every event (did someone make an out? did
 someone score? did the team win?) is obvious, while in software
 engineering figuring out if a computer program works and was well-made
 turns out to be extremely annoyingly hard unless you wait twenty years
 and see if anyone is using it and how much money it made) between
-baseball and software engineering would require more space than I can
-reasonably use in a Passages column.  I think I’ll write an Onward!
-Essay on the topic sometime, and exhaust the lengthier patience
-available there, or perhaps even a whole book on the topic.   But
+baseball and software engineering would require considerable argument
+and evidence.   But
 perhaps we can quickly see what I mean by the move from traditional
 stats to ones that mean more by looking at a simple example from
 software testing (we could also compare LOC produced to modern
-software productivity measures that are less simpleminded, like Change
-Failure Rate).
+software productivity measures that are less simpleminded, like DevOps' Change
+Failure Rate~\cite{dora_cfr}).
 
 One way to determine if a program is well-tested is to take the test
 suite for the program and look at the statement coverage: the percent
 of all statements in the whole program that are executed at least once
 by the test suite.  Obviously if a test suite fails to execute most of
 the code in the program it is ostensibly testing, it is likely a
-pretty bad test suite.  Similarly, if a test suite runs 90\% of the
+pretty bad test suite!  Similarly, if a test suite runs 90\% of the
 code in the program, it’s presumably at least doing something
 non-trivial right.
 
 In baseball, for a very very long time, the king of statistics was
 batting average.  What is batting average?  Even if you know little
-about baseball, even if you’re a European or from Mars (the best kid’s
+about baseball, even if you’re a European or from Mars \footnote{The best kid’s
 book on baseball is Walter R. Brooks’ (Brooks is also the guy who
-invented Mr. Ed) Freddy and the Baseball Team from Mars, by the way),
+invented Mr. Ed) \emph{Freddy and the Baseball Team from Mars}, by the way).},
 you may well know that in baseball, a batter is thrown balls by the
 pitcher and tries to hit those balls, and then (when the ball is hit)
 run to a series of three bases, before returning to the place from
@@ -249,8 +254,10 @@ how often a player hits the ball to advance to first, second, third,
 or home base.  Batting average is not nonsense!  The most
 sophisticated baseball statisticians tend to agree players celebrated
 for their batting averages, such as Ty Cobb, Rogers Hornsby, and Ted
-Williams, are superb, top-of-the-line players.  So it, like code
-coverage, is a meaningful number.
+Williams, were superb, top-of-the-line players; the top players by
+batting average now, like Aaron Judge, tend to be household names for
+a good reason.  Batting average, like code
+coverage, is a \emph{meaningful number}.
 
 However, there are some problems with statement coverage, and code
 coverage in general.  For one thing, maybe you only run a really
@@ -261,7 +268,7 @@ multiplication, but one factor is zero, for example).  Or, worse yet,
 you may run lots of code lots of times, but not check anything much
 about whether the program did what it was supposed to do other than
 “not crash.”  There are lots of ways a program can go wrong other than
-outright crashing.  Mutation score asks “what do we really care about
+outright crashing.  Mutation score~\cite{demillo1978hints,Discontents} asks “what do we really care about
 in testing?  We want to find bugs.  Statement coverage is an awful
 roundabout way to measure finding bugs, since bugs aren’t even
 mentioned here.  Let’s see how a test suite does at finding bugs.”  In
@@ -269,7 +276,7 @@ mutation testing, a large number of essentially random bugs are
 actually injected into a program, and the score is the percent of the
 fake bugs the test suite was able to find.  It’s not perfect, but if
 you think about it, it completely removes the two obvious problems
-with statement coverage I mentioned.
+with statement coverage mentioned above.
 
 Similarly, the way batting average is defined, it doesn’t look at
 every time a player comes up to home plate to try to hit the ball.
@@ -286,9 +293,23 @@ game-winning-relevant purpose, etc. etc. etc.).  On-base-percentage, a
 revolution in the 1980s in understanding how to value hitters, counted
 most everything, and looked (essentially) at “of times this player
 came up to bat, how often did this player end up at least standing on
-a base.”  Like mutation score, it focused on the more essential (not
+a base.”  Like mutation score, it focused on the \emph{more} essential (not
 getting out before reaching a base, finding bugs) rather than the
 easily and obviously measured (hitting the ball, running the code).
+The typical non-baseball-fan probably still knows batting average, not
+on-base-percentage; the typical software developer (who \emph{should}
+be more like a baseball fan than someone who isn't sure if Babe Ruth
+and Willy Mays played at the same time or not), alas, probably is
+still more familliar with code coverage than mutation score, but the
+game is changing, and highly visible adoption of mutation at, for example, Google~\cite{PetrovicMutationGoogle}
+and Meta~\cite{BellerFacebookMutation} suggest a revolution in this
+metric is underway.
+
+\section{Why It Isn't Easy}
+
+The above suggests that improving software engineering metrics is
+easy:  just do what the baseball people did, and look at whether the
+most widely used numbers are measuring the most important things.  
 
 
 
