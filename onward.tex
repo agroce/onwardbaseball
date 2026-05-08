@@ -72,7 +72,7 @@
 \copyrightyear{2026}
 \acmISBN{979-8-4007-1215-9/24/10}
 \acmConference[Onward! '26]{Proceedings of the 2026 ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software}{October 3--9, 2026}{Oakland, CA, USA}
-\acmBooktitle{Proceedings of the 2024 ACM SIGPLAN International
+\acmBooktitle{Proceedings of the 2026 ACM SIGPLAN International
   Symposium on New Ideas, New Paradigms, and Reflections on
   Programming and Software (Onward! '26), October 3--9, 2026, Oakland, CA, USA}
 \acmSubmissionID{onward26essays-p7-p}
@@ -86,7 +86,8 @@
 %%
 %% The "title" command has an optional parameter,
 %% allowing the author to define a "short title" to be used in page headers.
-\title{Another, Doubtless Very Different, Bill James}
+\title{Another, Doubtless Very Different, Bill James: Baseball Numbers
+and Software Numbers}
 
 \author{Alex Groce}
 \orcid{0000-0003-0273-4668}
@@ -131,7 +132,9 @@
 
 \begin{abstract}
 Software engineering metrics and baseball metrics have a lot in
-common; we oughta do something about that.
+common; this essay argues that we can make use of the common features,
+in light of the critical differences, to guide future work on software
+engineering metrics.
   \end{abstract}
 
 
@@ -160,7 +163,7 @@ tests as statistical experiments, which arguably also is a
 foundational insight for all of random testing and fuzzing) and formal
 specification (thus a contributor to the lines of thought that have
 given the field Alloy, TLA+, Dafny, and other treasures).  In short,
-he was a heckuva big shot in our field, though (other than having one
+Mills was a genuinely major figure in our field, though (other than having one
 of the top awards in the field named after him) I think he’s one of
 the least talked-about major visionaries (one name for the Mills
 Award, confusingly implied as being started in 1996, and perhaps by
@@ -174,7 +177,7 @@ program because he thought it was garbage, and that he worked at the
 Institute for Advanced Study alongside Einstein, Godel, and von
 Neumann, because Harlan Mills and his brother Eldon are the most
 prominent characters in Chapter 4 of Alan Schwarz's book, \emph{The
-  Numbers Game: Baseball's Lifelong Fascination with Statistics}~\cite{schwarz2004number}.
+  Numbers Game: Baseball's Lifelong Fascination with Statistics}~\cite{schwarz2004numbers}.
 Because, you see, besides a passion for applied mathematics and
 operational research and software engineering, Harlan Mills had a
 passion for baseball.  Harlan and Eldon Mills, in 1968, founded a
@@ -204,14 +207,14 @@ relevant data. Schwarz's book shows how computers were essential to
 the growth of the modern baseball stats world, and takes us back to
 when baseball work was done by “stealing” off-time on hulking company
 and government mainframes. The deeper connection, however, which this essay addresses, is that baseball
-was, for a very long time, tied to extremely traditional, and beloved
+was, for a very long time, tied to extremely traditional, and beloved,
 statistics, but even stodgy, change-averse professional baseball front
 and back offices eventually realized the grave limitations of these
 statistics and started making use of more sophisticated, nuanced, statistics
 that truly reflected how to win the game.  That story:  famous,
 widely-used numbers, lacking in proven operational relevance or at
 least clearly sub-optimal in definition, should
-sound familliar to students of software engineering.
+sound familiar to students of software engineering.
 
 \section{Build a Better Mousetrap/Metric}
 
@@ -245,8 +248,7 @@ non-trivial right.
 In baseball, for a very very long time, the king of statistics was
 batting average.  What is batting average?  Even if you know little
 about baseball, even if you’re a European or from Mars \footnote{The best kid’s
-book on baseball is Walter R. Brooks’ (Brooks is also the guy who
-invented Mr. Ed) \emph{Freddy and the Baseball Team from Mars}, by the way).},
+book on baseball is Walter R. Brooks’ \emph{Freddy and the Baseball Team from Mars}, by the way).},
 you may well know that in baseball, a batter is thrown balls by the
 pitcher and tries to hit those balls, and then (when the ball is hit)
 run to a series of three bases, before returning to the place from
@@ -300,8 +302,8 @@ easily and obviously measured (hitting the ball, running the code).
 The typical non-baseball-fan probably still knows batting average, not
 on-base-percentage; the typical software developer (who \emph{should}
 be more like a baseball fan than someone who isn't sure if Babe Ruth
-and Willy Mays played at the same time or not), alas, probably is
-still more familliar with code coverage than mutation score, but the
+and Willie Mays played at the same time or not), alas, probably is
+still more familiar with code coverage than mutation score, but the
 game is changing, and highly visible adoption of mutation at, for example, Google~\cite{PetrovicMutationGoogle}
 and Meta~\cite{BellerFacebookMutation} suggest a revolution in this
 metric is underway.
@@ -328,9 +330,267 @@ this list will be informative.
     \item The ``game''  is deeply structured and appeals to
       stats-minded thinkers.
       \item Arguably, for some historical, contingent reason, Americans are best
-        at it, though Brits invented it.
-  \end{itemize}
+        at it, though Brits invented it.  The Japanese can certainly
+        play, though maybe only in video games, but that's one of the
+        top money-making divisions, with a huge audience.  
+        \item Some of the best books in both fields are ``high end
+          practitioners analyzing how they do their magic'':  for
+          baseball, these range from Mathewson's legendary
+          \emph{Pitching in a Pinch} to Hernandez's \emph {Pure
+            Baseball}, with in betweens like Bob Gibson and Bob Gibson
+          + Reggie Jackson (\emph{Pitch by Pitch} and \emph{Sixty Feet
+            Six Inches}).  For software, we have legendary books like Brian Kernighan and
+          Rob Pike's \emph{The Practice of Programming} and McConnell's
+          \emph{Code Complete},  as well as \emph{The Pragmatic Programmer}, all
+          the ``Uncle Bob'' \emph{Clean X} books, and so forth,
+          including, arguably, much of Knuth's work.
+          \item Crazy things that don't fit any model \emph{will}
+            happen; you can understand and even in theory predict a
+            phenomenon like the adoption of smarter metrics by
+            management in baseball, or software companies adopting
+            very good practices with respect to CI/testing; you can't
+           predict a rare genius tech lead taking over a team and
+           producing outsized results, or a couple of years of Billy
+           Martin at the A's in the early 80s turning stolen bases and
+           hit-and-run into remarkably good-for-the-talent seasons.
+           Some things are not in any model.
+         \end{itemize}
 
+
+         
+ None of these things contradict a narrative where ``doing what OBP
+ does to batting average, but in more places'' is a fruitful and
+ relatively simple path forwards for software metrics.  The problem is
+ in the differences, and in fact in a few core differences between
+ baseball and software, bringing us to
+
+ \subsection{Ways Software Engineering is Not Like Baseball}
+
+ \begin{itemize}
+   \item Baseball has a profoundly binary structure:  games are won or
+     lost, and each game consists of a set of events with similarly
+     clean, discrete outcomes:  an at-bat is generally a ``win''
+     (perhaps with degrees of win for the batter) for the pitcher or
+     the batter; an inning has a score that is a set of of evaluations
+    of scoring opportunities; even something as intrinsically complex
+    and nuanced and hard-to-evaluate as fielding has obvious binary
+    outcomes: was an error handed out?  was a potential double play
+    converted? 
+    \item Baseball's outcomes are almost entirely \emph{evaluated
+        immediately}:  you do not need to wait six innings, much less
+      a season, to know that a batter striking out is bad for the
+      batter's team and good for the pitcher's team.  A design
+      decision or API change often will not make its positive or
+      negative payoffs clear for years, in some cases for decades.
+      It's nonsensical to think of a baseball player who looks great
+      on paper, racking up runs or outs for a team, but who in the
+      long term has left such a load of baseball's version of
+      technical debt that the player is a hidden liability, not an
+      asset.
+    \end{itemize}
+
+ Notice that unlike with the similarities, I haven't bothered to
+ discuss the ``software side'' of the issue, except implicitly:
+ everyone likely to read this knows that most software actions and
+ decisons don't have a simple, binary outcome, and that whatever
+ outcome they do have is often greatly temporally delayed:  even if a
+ line of code is simply and utterly wrong, the detection of that
+ wrongness may wait hours, days, months, years, or even never come, if
+ the bug is obscure and unlikely enough.  If a guy in the outfield
+ fails to catch a ball that should have easily been in his hands, it's
+ clear; there are no subtle misses or catches.
+
+ This presents a fundamental problem:  advanced statistics in baseball were, most
+ famously, used to let a team without ``Yankees-money'' (for software-only
+ people: read ``Google-money'') snap up undervalued players and
+ perform tricks based on understanding of the deeper, better,
+ statistics.  The \emph{Moneyball} movie, which stars Brad
+ Pitt\footnote{That you will not see an equivalent software movie starring
+   Brad Pitt is part of the point of this essay.}, has a famous bit of
+ dialogue, where Billy Beane (the hero of the canonical ``applying
+ advanced stats to actually winning ball games'' story), played by Pitt, talks to other
+ people in the management structure of his team, and Beane says the
+ others are trying to replace a certain critical individual player, but this is a
+ mistake.  He adds up the on-base-percentages of three players, and
+ averages them, then says the goal needs to be not to replace any
+ individual player, but to ``re-create him... in the aggregate'' and
+ find three (ideally, under-valued) players whose on-base-percentage matches
+ the three guys now missing from their team; not reproduce the
+ expensive, hard-to-get, best of them, but match the average of the
+ three, a much easier task.  In baseball, this pretty much works, if
+ you know the values to use (and using highly-relevant
+ on-base-percentage vs. much more famous, much  more lossy, batting average, matters here).
+
+ In software, if you lose three developers, you cannot think about a
+ formula for the ``good-code-percentage'' of the three, and try to
+ match the mean value, with lesser-paid developers, none of whom match
+ the star developer, but who, together, have the same
+ rationally-measured contribution to software success.  Your departing
+ developer has too few ``at-bats'' with too few binary ``good/bad''
+ outcomes to turn into a real number; your possible replacements, not
+ being highly (over-?) paid superstars, likely have even less reliable data;
+ furthermore, knowing if any decisions any of these people have made
+ were really good may take years; if you are a startup, you likely
+ will be bought or have gone out of business before it's known if
+ these players hit or struck out on their last at-bat, if it is ever
+ known, which is unlikely.
+
+The software game is just fundamentally hard to score; is Xerox's Palo
+Alto team a winning or losing team?  They changed the world and gave
+us modern software; they didn't make much money for Xerox.  There is
+no baseball equivalent, really.  If you get a pennant or a World
+Series title, you got it; nobody else gets to scoop up the rewards
+of genius for what, on paper, is a losing season for you.
+
+To emphasize this point, it's important to note that the most
+important decisions in software are seldom individual lines-of-code
+decisions, which map most naturally onto baseball's at-bats; the most
+important decisions are design decisions, over-arching choices like
+``do we use microservices or not?'' or ``what language should we write
+this in?'' at the highest level, or ``should this class handle this
+specialized scenario, or break it out into a separate class'' at a
+lower level.  Baseball has important high-level decisions; a manager or
+owner may prioritize hitting over pitching, power over speed, contact hitting
+over power, etc., but these decisions still have quicker, clearer evaluation payoff, and
+are more clearly constrained by budget or existing team, than
+the most difficult, unconstrained, new-software-system architectural
+decisions.  When you never make the playoffs, despite having a team of
+very good players, in
+five years, you can at least strongly suspect you chose wrong (and if
+you are a manager, the owner will clarify things by firing you, probably); when you made an
+architectural choice and you're winning over five years on deployment
+flexibility, but debugging complexity is a nightmare costing you
+money, reputation,
+and burnt-out devs, you often can't
+even guess if you made the right choice; it might well have gone worse
+the other way.  
+
+\section{How to Win the Game: Pick the Right Game to Play}
+
+In baseball, if you have very bad pitchers, and no way to fix that,
+you need to play the Boston Red Sox game of racking up a ton of runs
+with an incredible offense; if you have great pitchers and no offense,
+you need to play that game.  You may not have the ability to play the
+ideal game (great pitching, great hitting, utter dominance) unless you
+are the Yankees and have infinite money.
+
+Similarly, if we software engineering thinkers want to up our metrics game, we
+are going to have to look at where we can compete with baseball in
+terms of developing real, advanced, meaningful statistics, and where
+the structure of the game means we need to give up, at least for now.
+
+First, we have positive examples.  Mutation score is not a perfect way
+to tell if a test suite is good or bad, but it is a much more powerful
+approach to making a rational guess at that question than code
+coverage alone, because it focuses on a genuinely meaningful binary
+statistic in the same way as on-base-percentage:  does this test suite
+detect this example of a bug?  This is repeated over a lot of at-bats,
+and gives us a real measure of something important about a test suite
+(the power it has to detect real, if hypothetical, bugs).
+
+The above analysis suggests that trying to develop meaningful
+statistics to evaluate individual players is, at minimum, going to be
+vastly more difficult in software than in baseball.  Baseball has, in
+fact, exploited the binary nature of a large number of immediately
+evaluated events to produce sophisticated player statistics based on
+concepts such as ``the delta between a given player and an aggregate
+average, 'replacement' player at the same position'' (WAR, Wins Above
+Replacement), runs created (a clever statistic invented by Bill James, about whom, more in
+a little bit), an attempt to actually measure the genuine contribution
+of an individual player to a team's overall set of winning games,
+accounting for the player's individual role in play (win
+shares, again a Bill James creation), and Pythagorean winning
+percentage (again, James, and you mathy folks who don't know baseball can possibly even guess
+what this one looks like).
+
+One might imagine that individual player evaluation must be left to
+word-of-mouth, previous salary, resume scanning, and interviews
+focusing on arbitrary and rather silly puzzles and coding questions,
+but that perhaps software is doing a good job at project-level
+estimation, where the hard-to-measure differences of individual
+players are more evened-out.  Alas, even very well-intentioned
+approaches such as COCOMO II\cite{boehm2000cocomo} have a much higher error rate (30\% or
+worse) than the current ability of Vegas oddsmakers or amateur
+statisticians to predict the win-loss record of a team for an upcoming
+season.  Large software projects remain notoriously over-budget and
+over-schedule in a way dating back to Fred Brooks; baseball teams
+sometimes surprise, but are fairly predictable in a way software
+projects simply are not.
+
+The way to play is to give up on the game you can't win right now.  In
+the long run ``individual developers'' may in fact have reliable
+statistics, if those developers are not humans with limited,
+hard-to-evaluate, decisions but are LLMs that can be applied to
+varieties of problems with known solutions for a huge number of
+``at-bats'' and measured objectively on past problems, without undue
+cost.  But for now, most developers are human, and there is no
+shortcut to evaluating them; similarly, while some effort at project
+budget and schedule estimation is necessary, it is unreasonable to
+expect high precision much beyond what is obtained by simply asking expert
+developers who are given a reasonable outline of the project scope.
+
+But this does not mean that software has nowhere to go in improving
+the quality of its statistics; it means that we have to look for
+places where wins are possible, even if those are not the most
+desirable statistical tools (developer evaluation tools for hiring,
+project estimation tools for planning).  Testing, and more generally, CI, shows the way:
+because testing has many binary outcomes immediately evaluated, 
+successful/failed compilations, tests passed/failed, and static
+analysis reports, it can be, and has been, turned into sophisticated
+statistical measures that offer real power to smart managers and
+developers.  Analysis in these settings has the ability to do real
+historical examinations too, because old check-ins can be re-tested,
+and you can actually ask if a proposed measure would have predicted
+the eventual presence or absence of bugs in code~\cite{testedness}.
+
+There are other places where such efforts seem like they might pay off:
+\begin{itemize}
+  \item Build and CI pipeline health in general (lots of discrete
+  events, determination of flaky tests, etc.): real time series data
+  \item Dependency and API stability:  when a library API breaks
+    downstream consumers, that is often an observed event;
+    vulnerabilities requiring critical patches are big-time, observed,
+    ``strike-outs'' or ``errors''
+    \item Code review turnaround (are bugs detected in code that
+      passed code review, within a short time frame); this one can
+      potentially point fingers at individual developers who may be good
+      developers but are poor reviewers, even
+    \item Incident/outage attribution
+      \item And, as noted, LLM/AI developers, who can be put through
+        evaluation exercises that human developers cannot, without undue cost, undergo
+      \end{itemize}
+
+ These are simply the first few that come to my mind, and really I
+ don't know anything about anything but testing, myself.
+
+ \section{A New Bill James}
+
+ Who is Bill James?  In 2006, Time magazine named him one of the 100
+ most influential people in the world.  He worked for the Boston Red
+ Sox for 17 years, during which they won four World Series
+ championships.  He has undergraduate degrees in English and
+ economics.  And, most importantly, by heroic effort, while a security
+ guard at a pork-and-beans cannery, he asked a bunch of hard questions
+ and gave data-based answers, focusing on things that could actually
+ be answered given the data, and this work, after he wrote it up and
+ fought his way through skeptical editors, kicked off a real
+ revolution in baseball statistics, finally fulfilling the dream of
+ Harlan Mills and other thinkers, by making baseball front offices turn their
+ attention to numbers that meant something and were built for
+ practical use.
+
+ James' virtues, in baseball's ``numbers game,'' were a stubborn attention to the
+ solvable problems at hand, a willingness to toil in obscurity until
+ he had something worth saying, and
+ the capability to write up his good ideas in a way that found a large
+ audience, eventually including an audience consisting of the decision
+ makers behind professional baseball teams.
+
+ At the end of  his landmark book lamenting the collapse of moral
+ philosophy as a vital program capable of directing human activity,
+ the philosopher Alasdair MacIntyre wrote ``We are waiting not for a
+ Godot, but for another---doubtless very different---St. Benedict.''
+ Software engineering awaits another---doubtless very different---Bill James.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{bibliography}
