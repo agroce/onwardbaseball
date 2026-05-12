@@ -133,7 +133,7 @@ and Software Numbers}
 \begin{abstract}
 Software engineering metrics and baseball metrics have a lot in
 common; this essay argues that we can make use of the common features,
-in light of the critical differences, to guide future work on software
+with due attention to the critical differences, to guide future work on software
 engineering metrics.
   \end{abstract}
 
@@ -165,32 +165,34 @@ specification (thus a contributor to the lines of thought that have
 given the field Alloy, TLA+, Dafny, and other treasures).  In short,
 Mills was a genuinely major figure in our field, though (other than having one
 of the top awards in the field named after him) I think he’s one of
-the least talked-about major visionaries (one name for the Mills
+the least talked-about major visionaries we have. Indeed, one name for the Mills
 Award, confusingly implied as being started in 1996, and perhaps by
 ICSE/the ACM, in Wikipedia, is the “Harlan Mills Practical Visionary
-Prize”) we have.
+Prize”.
 
 I know the rough outlines of the above details because I am a software
-engineering history buff.  I know that Mills was a command pilot for
-the US Army Air Corps in WWII, and rewrote the B-24 pilot training
-program because he thought it was garbage, and that he worked at the
-Institute for Advanced Study alongside Einstein, Godel, and von
-Neumann, because Harlan Mills and his brother Eldon are the most
+engineering history buff.  But I also know that Mills was a command pilot for
+the US Army Air Corps in WWII; that he rewrote the B-24 pilot training
+program because he thought it was garbage; and that he worked at the
+Institute for Advanced Study alongside Einstein, G\"odel, and von
+Neumann. I know these things because Harlan Mills and his brother Eldon are the most
 prominent characters in Chapter 4 of Alan Schwarz's book, \emph{The
   Numbers Game: Baseball's Lifelong Fascination with Statistics}~\cite{schwarz2004numbers}.
-Because, you see, besides a passion for applied mathematics and
-operational research and software engineering, Harlan Mills had a
-passion for baseball.  Harlan and Eldon Mills, in 1968, founded a
+They appear there because, besides having a passion for applied mathematics,
+operational research, and software engineering, Harlan Mills had a
+passion for baseball.  In 1968, Harlan and Eldon Mills founded a
 company called Computer Research in Sports.  Their goal was to go
-beyond the (much-beloved: one could argue that batting average, which
-we’ll talk about below, drove the country crazy a few times in the
-years since baseball became America’s pastime) statistics baseball
+beyond the statistics baseball
 fans already knew to statistics that truly measured how a player
-contributed to winning a game.  They were among many high-powered
+contributed to winning a game. For example, they wanted to look beyond
+the much-beloved batting average, a statistic we will talk about
+below that, one could argue, drove the country crazy a few times in the
+years since baseball became America’s pastime.
+Harlon and Eldon were among many high-powered
 intellects (including multiple Nobel Prize winners and the popular
 Harvard evolutionary-biology maverick, public intellectual, and superb
 writer Stephen Jay Gould) pioneering an effort to truly understand
-baseball that is documented in Schwarz’s engaging, in-depth, look at
+baseball, an effort that is documented in Schwarz’s engaging and in-depth look at
 baseball’s love of statistics and how those statistics have developed
 from the earliest, alien-looking, box-scores.
 
@@ -199,18 +201,18 @@ however, goes beyond the curiosity that Mills was a pioneer in both
 software engineering and baseball stats-savvy.  The obvious connection
 is that the stats revolution in baseball was in substantial part tied
 to the computer revolution; nothing like \url{https://www.retrosheet.org/}
-could plausibly exist in a non-computerized world, and certainly
-looking for trends or even just finding individual facts in such a
-database (play-by-play accounts of over 100,000 pro baseball games)
+could plausibly exist in a non-computerized world. This site,
+which offers play-by-play accounts of over 100,000 pro baseball games
+makes it possible to search for trends or individual facts, a task that
 would be impossible even if a warehouse of filing cabinets had the
 relevant data. Schwarz's book shows how computers were essential to
 the growth of the modern baseball stats world, and takes us back to
 when baseball work was done by “stealing” off-time on hulking company
-and government mainframes. The deeper connection, however, which this essay addresses, is that baseball
+and government mainframes. The deeper connection, however, is that baseball
 was, for a very long time, tied to extremely traditional, and beloved,
 statistics, but even stodgy, change-averse professional baseball front
 and back offices eventually realized the grave limitations of these
-statistics and started making use of more sophisticated, nuanced, statistics
+statistics. Once they made this realization, they started making use of more sophisticated, nuanced, statistics
 that truly reflected how to win the game.  That story:  famous,
 widely-used numbers, lacking in proven operational relevance or at
 least clearly sub-optimal in definition, should
@@ -218,23 +220,24 @@ sound familiar to students of software engineering.
 
 \section{Build a Better Mousetrap/Metric}
 
-To develop the theme of the similarities (data is easy to gather, hard
-to understand; a lot of people who like futzing with spreadsheets and
-coding up formulas are involved; there’s a lot of money and a lot of
-(to stay polite, this is a family paper!) “BS” involved) and
-differences (baseball is an extraordinarily structured thing, and the
+Comparing baseball and software engineering would require considerable argument
+and evidence. They have the following similarities:
+data is easy to gather, hard to understand;
+a lot of people who like futzing with spreadsheets and
+coding up formulas are involved; and there’s both a lot of money and a lot of malarkey involved.
+Their differences are more stark:
+baseball is an extraordinarily structured thing, and the
 binary outcome of almost every event (did someone make an out? did
-someone score? did the team win?) is obvious, while in software
+someone score? did the team win?) is obvious; meanwhile in software
 engineering figuring out if a computer program works and was well-made
 turns out to be extremely annoyingly hard unless you wait twenty years
-and see if anyone is using it and how much money it made) between
-baseball and software engineering would require considerable argument
-and evidence.   But
+and see if anyone is still using it and how much money it made.
+But
 perhaps we can quickly see what I mean by the move from traditional
 stats to ones that mean more by looking at a simple example from
-software testing (we could also compare LOC produced to modern
+software testing.\footnote{We could also compare LOC produced to modern
 software productivity measures that are less simpleminded, like DevOps' Change
-Failure Rate~\cite{dora_cfr}).
+Failure Rate~\cite{dora_cfr}.}
 
 One way to determine if a program is well-tested is to take the test
 suite for the program and look at the statement coverage: the percent
@@ -246,10 +249,10 @@ code in the program, it’s presumably at least doing something
 non-trivial right.
 
 In baseball, for a very very long time, the king of statistics was
-batting average.  What is batting average?  Even if you know little
+batting average.  Even if you know little
 about baseball, even if you’re a European or from Mars \footnote{The best kid’s
 book on baseball is Walter R. Brooks’ \emph{Freddy and the Baseball Team from Mars}, by the way).},
-you may well know that in baseball, a batter is thrown balls by the
+you probably know that in baseball, a batter is thrown balls by the
 pitcher and tries to hit those balls, and then (when the ball is hit)
 run to a series of three bases, before returning to the place from
 which the ball is initially hit (home base).  Batting average looks at
@@ -277,15 +280,15 @@ roundabout way to measure finding bugs, since bugs aren’t even
 mentioned here.  Let’s see how a test suite does at finding bugs.”  In
 mutation testing, a large number of essentially random bugs are
 actually injected into a program, and the score is the percent of the
-fake bugs the test suite was able to find.  It’s not perfect, but if
-you think about it, it completely removes the two obvious problems
+fake bugs the test suite was able to find.  It’s not perfect, but
+it completely removes the two obvious problems
 with statement coverage mentioned above.
 
 Similarly, the way batting average is defined, it doesn’t look at
 every time a player comes up to home plate to try to hit the ball.
 The numerator is “times the player hit the ball and got to a base” but
 the denominator is “times the player came up to bat, minus times the
-pitcher did such a bad job the player was allowed to take a base
+pitcher did such a bad job that the player was allowed to take a base
 without hitting the ball, and the batter took proper advantage of this
 by not swinging at bad pitches (or times the pitcher feared the player
 so much this was intentionally done to keep the bat off the ball),
@@ -326,13 +329,14 @@ this list will be informative.
     and no one player, however good, can compete in the pros without a
     good team but 2)
     individual ability is extremely important, and the gap between the
-    average ``player'' and the best is large and really matters.
+    average player and the best is large and really matters.
     \item The ``game''  is deeply structured and appeals to
       stats-minded thinkers.
       \item Arguably, for some historical, contingent reason, Americans are best
         at it, though Brits invented it.  The Japanese can certainly
         play, though maybe only in video games, but that's one of the
-        top money-making divisions, with a huge audience.  
+        top money-making divisions, with a huge audience.
+        [ I'd drop this item altogether. Cute but triggering. -- kosak ]
         \item Some of the best books in both fields are ``high end
           practitioners analyzing how they do their magic'':  for
           baseball, these range from Mathewson's legendary
@@ -358,11 +362,11 @@ this list will be informative.
 
 
          
- None of these things contradict a narrative where ``doing what OBP
+ None of these things contradict a narrative where ``doing what on-base-percentage
  does to batting average, but in more places'' is a fruitful and
  relatively simple path forwards for software metrics.  The problem is
  in the differences, and in fact in a few core differences between
- baseball and software, bringing us to
+ baseball and software, bringing us to:
 
  \subsection{Ways Software Engineering is Not Like Baseball}
 
@@ -370,8 +374,10 @@ this list will be informative.
    \item Baseball has a profoundly binary structure:  games are won or
      lost, and each game consists of a set of events with similarly
      clean, discrete outcomes:  an at-bat is generally a ``win''
-     (perhaps with degrees of win for the batter) for the pitcher or
-     the batter; an inning has a score that is a set of of evaluations
+     for the pitcher or
+     the batter
+     (perhaps with degrees of win for the batter);
+     an inning has a score that is a set of of evaluations
     of scoring opportunities; even something as intrinsically complex
     and nuanced and hard-to-evaluate as fielding has obvious binary
     outcomes: was an error handed out?  was a potential double play
@@ -381,7 +387,7 @@ this list will be informative.
       a season, to know that a batter striking out is bad for the
       batter's team and good for the pitcher's team.  A design
       decision or API change often will not make its positive or
-      negative payoffs clear for years, in some cases for decades.
+      negative payoffs clear for years or even decades.
       It's nonsensical to think of a baseball player who looks great
       on paper, racking up runs or outs for a team, but who in the
       long term has left such a load of baseball's version of
@@ -396,7 +402,7 @@ this list will be informative.
  outcome they do have is often greatly temporally delayed:  even if a
  line of code is simply and utterly wrong, the detection of that
  wrongness may wait hours, days, months, years, or even never come, if
- the bug is obscure and unlikely enough.  If a guy in the outfield
+ the bug is obscure and unlikely enough to be triggered.  If a guy in the outfield
  fails to catch a ball that should have easily been in his hands, it's
  clear; there are no subtle misses or catches.
 
@@ -409,17 +415,17 @@ this list will be informative.
    Brad Pitt is part of the point of this essay.}, has a famous bit of
  dialogue, where Billy Beane (the hero of the canonical ``applying
  advanced stats to actually winning ball games'' story), played by Pitt, talks to other
- people in the management structure of his team, and Beane says the
- others are trying to replace a certain critical individual player, but this is a
- mistake.  He adds up the on-base-percentages of three players, and
+ people in the management structure of his team,
+ who are trying to replace a certain critical individual player. Bean
+ says this is a mistake.  He adds up the on-base-percentages of three players, and
  averages them, then says the goal needs to be not to replace any
  individual player, but to ``re-create him... in the aggregate'' and
  find three (ideally, under-valued) players whose on-base-percentage matches
  the three guys now missing from their team; not reproduce the
  expensive, hard-to-get, best of them, but match the average of the
  three, a much easier task.  In baseball, this pretty much works, if
- you know the values to use (and using highly-relevant
- on-base-percentage vs. much more famous, much  more lossy, batting average, matters here).
+ you know the values to use: using the highly-relevant
+ on-base-percentage vs. much more famous, much  more lossy, batting average, matters here.
 
  In software, if you lose three developers, you cannot think about a
  formula for the ``good-code-percentage'' of the three, and try to
@@ -574,7 +580,7 @@ There are other places where such efforts seem like they might pay off:
 
  \section{A New Bill James}
 
- Who is Bill James?  In 2006, Time magazine named him one of the 100
+ In 2006, Time magazine named Bill James one of the 100
  most influential people in the world.  He worked for the Boston Red
  Sox for 17 years, during which they won four World Series
  championships.  He has undergraduate degrees in English and
