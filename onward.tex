@@ -188,7 +188,7 @@ contributed to winning a game. For example, they wanted to look beyond
 the much-beloved batting average, a statistic we will talk about
 below that, one could argue, drove the country crazy a few times in the
 years since baseball became America’s pastime.
-Harlon and Eldon were among many high-powered
+Harlan and Eldon were among many high-powered
 intellects (including multiple Nobel Prize winners and the popular
 Harvard evolutionary-biology maverick, public intellectual, and superb
 writer Stephen Jay Gould) pioneering an effort to truly understand
@@ -220,22 +220,23 @@ sound familiar to students of software engineering.
 
 \section{Build a Better Mousetrap/Metric}
 
-Comparing baseball and software engineering would require considerable argument
-and evidence. They have the following similarities:
-data is easy to gather, hard to understand;
-a lot of people who like futzing with spreadsheets and
-coding up formulas are involved; and there’s both a lot of money and a lot of malarkey involved.
-Their differences are more stark:
-baseball is an extraordinarily structured thing, and the
-binary outcome of almost every event (did someone make an out? did
-someone score? did the team win?) is obvious; meanwhile in software
-engineering figuring out if a computer program works and was well-made
-turns out to be extremely annoyingly hard unless you wait twenty years
-and see if anyone is still using it and how much money it made.
-But
-perhaps we can quickly see what I mean by the move from traditional
-stats to ones that mean more by looking at a simple example from
-software testing.\footnote{We could also compare LOC produced to modern
+%Baseball and software engineering have the following important similarities:
+%data is easy to gather, hard to understand;
+%a lot of people who like futzing with spreadsheets and
+%coding up formulas are involved; and there’s both a lot of money and a lot of malarkey involved.
+%Their differences are more stark:
+%baseball is an extraordinarily structured thing, and the
+%binary outcome of almost every event (did someone make an out? did
+%someone score? did the team win?) is obvious; meanwhile in software
+%engineering figuring out if a computer program works and was well-made
+%turns out to be extremely annoyingly hard unless you wait twenty years
+%and see if anyone is still using it and how much money it made.
+%But
+Perhaps we can quickly see what I mean by the move from traditional
+stats to ones that really do \emph{mean more} by looking at a simple example from
+software testing, paired with the most famous example from baseball
+(and the only one I think I can explain tolerably well to software
+people who don't know baseball).\footnote{We could also compare LOC produced to modern
 software productivity measures that are less simpleminded, like DevOps' Change
 Failure Rate~\cite{dora_cfr}.}
 
@@ -282,7 +283,10 @@ mutation testing, a large number of essentially random bugs are
 actually injected into a program, and the score is the percent of the
 fake bugs the test suite was able to find.  It’s not perfect, but
 it completely removes the two obvious problems
-with statement coverage mentioned above.
+with statement coverage mentioned above, by focusing on \emph{finding
+  the bug}: if you only run code in an uniteresting context, you won't
+find a bug where the non-zero operand to multiplication is wrong; and
+you won't find any bugs whose consequences you don't examine in your tests.
 
 Similarly, the way batting average is defined, it doesn’t look at
 every time a player comes up to home plate to try to hit the ball.
@@ -332,11 +336,7 @@ this list will be informative.
     average player and the best is large and really matters.
     \item The ``game''  is deeply structured and appeals to
       stats-minded thinkers.
-      \item Arguably, for some historical, contingent reason, Americans are best
-        at it, though Brits invented it.  The Japanese can certainly
-        play, though maybe only in video games, but that's one of the
-        top money-making divisions, with a huge audience.
-        [ I'd drop this item altogether. Cute but triggering. -- kosak ]
+ 
         \item Some of the best books in both fields are ``high end
           practitioners analyzing how they do their magic'':  for
           baseball, these range from Mathewson's legendary
@@ -416,7 +416,7 @@ this list will be informative.
  dialogue, where Billy Beane (the hero of the canonical ``applying
  advanced stats to actually winning ball games'' story), played by Pitt, talks to other
  people in the management structure of his team,
- who are trying to replace a certain critical individual player. Bean
+ who are trying to replace a certain critical individual player. Beane
  says this is a mistake.  He adds up the on-base-percentages of three players, and
  averages them, then says the goal needs to be not to replace any
  individual player, but to ``re-create him... in the aggregate'' and
@@ -425,7 +425,12 @@ this list will be informative.
  expensive, hard-to-get, best of them, but match the average of the
  three, a much easier task.  In baseball, this pretty much works, if
  you know the values to use: using the highly-relevant
- on-base-percentage vs. much more famous, much  more lossy, batting average, matters here.
+ on-base-percentage vs. much more famous, much  more lossy, batting
+ average, matters here.  It's okay to take a guy who gets a lot of
+ walks, for example: he's good at knowing when to hold off swinging at the ball,
+ which is extremely useful for winning games; that this excites fans
+ less than hitting the ball is ok, because winning games \emph{really}
+ excites fans.
 
  In software, if you lose three developers, you cannot think about a
  formula for the ``good-code-percentage'' of the three, and try to
@@ -483,7 +488,7 @@ are the Yankees and have infinite money.
 Similarly, if we software engineering thinkers want to up our metrics game, we
 are going to have to look at where we can compete with baseball in
 terms of developing real, advanced, meaningful statistics, and where
-the structure of the game means we need to give up, at least for now.
+the structure of the game means we need to give up.
 
 First, we have positive examples.  Mutation score is not a perfect way
 to tell if a test suite is good or bad, but it is a much more powerful
@@ -515,7 +520,8 @@ metrics. Evaluating developers by lines of code is like evaluating
 batters by how often they swing at a pitch. The pitch may have been a
 ball; the swing, in itself, means nothing. What matters is getting on
 base; in software, getting on base is writing useful, correct code that does not increase
-technical debt or cognitive load. And often, one swing is better than
+technical debt or cognitive load (or at least does not increase it more than
+is reasonable for the payoff). And often, one swing is better than
 three; one line is better than five.
 
 One might imagine that individual player evaluation must be left to
@@ -524,7 +530,7 @@ focusing on arbitrary and rather silly puzzles and coding questions,
 but that perhaps software is doing a good job at project-level
 estimation, where the hard-to-measure differences of individual
 players are more evened-out.  Alas, even very well-intentioned
-approaches such as COCOMO II\cite{boehm2000cocomo} have a much higher error rate (30\% or
+approaches such as COCOMO II~\cite{boehm2000cocomo} have a much higher error rate (30\% or
 worse) than the current ability of Vegas oddsmakers or amateur
 statisticians to predict the win-loss record of a team for an upcoming
 season.  Large software projects remain notoriously over-budget and
@@ -532,7 +538,7 @@ over-schedule in a way dating back to Fred Brooks; baseball teams
 sometimes surprise, but are fairly predictable in a way software
 projects simply are not.
 
-The way to play is to give up on the game you can't win right now.  In
+The way to play is to give up on the games you can't win right now.  In
 the long run ``individual developers'' may in fact have reliable
 statistics, if those developers are not humans with limited,
 hard-to-evaluate, decisions but are LLMs that can be applied to
@@ -547,7 +553,8 @@ developers who are given a reasonable outline of the project scope.
 But this does not mean that software has nowhere to go in improving
 the quality of its statistics; it means that we have to look for
 places where wins are possible, even if those are not the most
-desirable statistical tools (developer evaluation tools for hiring,
+desirable statistical tools (developer evaluation tools for hiring and
+firing,
 project estimation tools for planning).  Testing, and more generally, CI, shows the way:
 because testing has many binary outcomes immediately evaluated, 
 successful/failed compilations, tests passed/failed, and static
@@ -569,8 +576,10 @@ There are other places where such efforts seem like they might pay off:
     \item Code review turnaround (are bugs detected in code that
       passed code review, within a short time frame); this one can
       potentially point fingers at individual developers who may be good
-      developers but are poor reviewers, even
-    \item Incident/outage attribution
+      developers but are poor reviewers
+    \item Incident/outage attribution (hard, the causality chains are a
+      lot more opaque than the most complex baseball play, but not
+      obviously hopeless)
       \item And, as noted, LLM/AI developers, who can be put through
         evaluation exercises that human developers cannot, without undue cost, undergo
       \end{itemize}
